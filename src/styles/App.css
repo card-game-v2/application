@@ -1,38 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+
+:root {
+  --light-primary: #ffffff;
+  --light-secondary: #f9f9f9;
+  --light-tertiary: #e0e0e0;
+  --typography-light: #000000;
+  --dark-primary: #1f1f1f;
+  --dark-secondary: #252526;
+  --dark-tertiary: #3b3b3c;
+  --typography-dark: #ffffff;
+}
+
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100vh;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-light {
+  color: var(--typography-light);
+  background-color: var(--light-primary);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-dark {
+  color: var(--typography-dark);
+  background-color: var(--dark-primary);
 }
