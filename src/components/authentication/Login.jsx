@@ -25,7 +25,7 @@ const Login = ({ theme }) => {
         <button className={`authentication-submit authentication-submit-${theme}`} type="submit">
           Login
         </button>
-        <Link to="/signup">
+        <Link to="/create">
           <p>Create an account!</p>
         </Link>
       </form>
