@@ -19,12 +19,20 @@ const Create = ({ theme, setAuth, setUser }) => {
       toast.error('Username must be at least 4 characters');
       return;
     }
+    if (e.target[0].value.length > 14) {
+      toast.error('Username must be less than 15 characters');
+      return;
+    }
     if (!/^[a-z][a-z0-9]{3,}$/.test(e.target[0].value.toLowerCase())) {
       toast.error('Username can not contain special characters');
       return;
     }
     if (e.target[1].value.length < 6) {
       toast.error('Password must be at least 6 characters');
+      return;
+    }
+    if (e.target[1].value.length > 64) {
+      toast.error('Password must be less than 65 characters');
       return;
     }
     if (e.target[1].value !== e.target[2].value) {
