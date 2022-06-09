@@ -21,7 +21,7 @@ const Profile = ({ theme, user, spawn }) => {
     <section className={`collection collection-${theme}`}>
       <div className={`collection-cards collection-cards-${theme}`}>
         {usercards.map((usercard) => (
-          <Tilt key={usercard.usercard_id}>
+          <Tilt key={`${usercard.usercards_id}${usercard.usercards_issue}`}>
             <img className={`collection-card`} src={usercard.card_image_url} alt="card" />
           </Tilt>
         ))}
