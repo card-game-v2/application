@@ -10,6 +10,10 @@ const Login = ({ theme, setAuth, setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (e.target[0].value.length < 1 || e.target[1].value.length < 1) {
+      toast.error('Invalid username or password');
+      return;
+    }
     const data = await getUserByUsername(e.target[0].value);
     if (data.message === 'User not found' || e.target[1].value !== data.data.user_password) {
       toast.error('Invalid username or password');
@@ -17,7 +21,6 @@ const Login = ({ theme, setAuth, setUser }) => {
     }
     toast.success('Login successful');
     setAuth(true);
-    console.log(data);
     setUser({
       username: data.data.user_name,
       userid: data.data.user_id,
