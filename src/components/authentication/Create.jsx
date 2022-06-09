@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { createID } from '../../utils/function';
 import { getUserByUsername, postUser } from '../../utils/connection';
 
-const Create = ({ theme }) => {
+const Create = ({ theme, setAuth, user, setUser }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -34,8 +34,10 @@ const Create = ({ theme }) => {
     const { message } = await getUserByUsername(e.target[0].value);
     if (message === 'User not found') {
       const userid = await createID();
-      await postUser(userid, e.target[0].value.toLowerCase(), e.target[1].value);
+      await postUser(userid, e.target[0].value, e.target[1].value);
       toast.success('Account created');
+      setAuth(true);
+      setUser({ ...user, username: e.target[0].value, userid: userid });
       navigate('/profile');
     } else {
       toast.error('Username already exists');
