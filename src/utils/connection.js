@@ -5,17 +5,17 @@ const server = axios.create({
 });
 
 export const getUserByUsername = async (userName) => {
-  const { data } = await server.get(`/username/${userName}`);
+  const { data } = await server.get(`/users/u/${userName}`);
   return data;
 };
 
 export const getUserById = async (userId) => {
-  const { data } = await server.get(`/userid/${userId}`);
+  const { data } = await server.get(`/users/i/${userId}`);
   return data;
 };
 
 export const postUser = async (userID, userName, userPassword, userAvatarURL) => {
-  const { data } = await server.post('/user', {
+  const { data } = await server.post('/users', {
     user_id: userID,
     user_name: userName,
     user_password: userPassword,
