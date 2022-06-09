@@ -14,11 +14,12 @@ function App() {
   const [theme, setTheme] = useState('light');
   const [auth, setAuth] = useState(false);
   const [user, setUser] = useState(undefined);
+  const [spawn, setSpawn] = useState(true);
 
   return (
     <div className={`App app-${theme}`}>
       <ToastContainer />
-      <Navigation theme={theme} setTheme={setTheme} />
+      <Navigation theme={theme} setTheme={setTheme} user={user} spawn={spawn} setSpawn={setSpawn} />
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login theme={theme} setAuth={setAuth} setUser={setUser} />} />
@@ -26,7 +27,7 @@ function App() {
         <Route path="/profile" element={auth ? <Profile theme={theme} user={user} /> : <Navigate to="/login" />} />
         <Route
           path="/collection"
-          element={auth ? <Collection theme={theme} user={user} /> : <Navigate to="/login" />}
+          element={auth ? <Collection theme={theme} user={user} spawn={spawn} /> : <Navigate to="/login" />}
         />
         <Route path="/*" element={<h1>ERROR</h1>} />
       </Routes>
