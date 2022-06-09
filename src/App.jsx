@@ -15,7 +15,7 @@ function App() {
   const [user, setUser] = useState({
     username: '',
     userid: '',
-    avatar: 'https://64.media.tumblr.com/24f93e6373bd3d6a27ec2e096658b865/tumblr_nwxt5iu24I1ujp48jo1_400.png',
+    avatar: '',
   });
 
   return (
@@ -24,8 +24,8 @@ function App() {
       <Navigation theme={theme} />
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login theme={theme} />} />
-        <Route path="/create" element={<Create theme={theme} setAuth={setAuth} user={user} setUser={setUser} />} />
+        <Route path="/login" element={<Login theme={theme} setAuth={setAuth} setUser={setUser} />} />
+        <Route path="/create" element={<Create theme={theme} setAuth={setAuth} setUser={setUser} />} />
         <Route path="/profile" element={auth ? <Profile theme={theme} user={user} /> : <Navigate to="/login" />} />
         <Route path="/*" element={<h1>ERROR</h1>} />
       </Routes>
