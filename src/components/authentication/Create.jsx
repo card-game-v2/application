@@ -33,7 +33,8 @@ const Create = ({ theme }) => {
     }
     const { message } = await getUserByUsername(e.target[0].value);
     if (message === 'User not found') {
-      await postUser(createID(), e.target[0].value.toLowerCase(), e.target[1].value);
+      const userid = await createID();
+      await postUser(userid, e.target[0].value.toLowerCase(), e.target[1].value);
       toast.success('Account created');
       navigate('/profile');
     } else {
