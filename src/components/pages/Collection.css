@@ -1,0 +1,104 @@
+.collection {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 30px 0;
+  top: 0;
+  right: 0;
+  width: calc(100% - 261px);
+  align-items: center;
+}
+.collection-light {
+  color: var(--typography-light);
+  background-color: var(--light-primary);
+}
+.collection-dark {
+  color: var(--typography-dark);
+  background-color: var(--dark-primary);
+}
+.collection-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px 30px;
+  width: calc(95% - 30px * 2);
+  border-radius: 12px 12px 12px 12px;
+}
+.collection-cards-light {
+  background-color: var(--light-secondary);
+  border: 1px solid var(--light-tertiary);
+}
+.collection-cards-dark {
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-tertiary);
+}
+/* .profile-avatar {
+  margin-right: 40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 6px;
+} */
+/* .profile-name {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-size: 32px;
+} */
+/* .profile-id {
+  margin-top: 10px;
+  margin-bottom: 0px;
+} */
+/* .profile-statistics {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 0px 12px;
+  padding: 0 30px;
+  width: calc(95% - 30px * 2);
+  border-radius: 0 0 12px 12px;
+} */
+/* .profile-statistics-light {
+  background-color: var(--light-secondary);
+  border-left: 1px solid var(--light-tertiary);
+  border-right: 1px solid var(--light-tertiary);
+  border-bottom: 1px solid var(--light-tertiary);
+} */
+/* .profile-statistics-dark {
+  background-color: var(--dark-secondary);
+  border-left: 1px solid var(--dark-tertiary);
+  border-right: 1px solid var(--dark-tertiary);
+  border-bottom: 1px solid var(--dark-tertiary);
+} */
+
+/* @media (max-width: 1025px) {
+  .profile {
+    margin-top: 60px;
+    width: 100%;
+  }
+} */
+
+/* @media (max-width: 747px) {
+  .profile-name {
+    font-size: 24px;
+  }
+  .profile-id {
+    font-size: 14px;
+  }
+} */
+
+/* @media (max-width: 637px) {
+  .profile-name {
+    font-size: 18px;
+  }
+} */
+
+/* @media (max-width: 561px) {
+  .profile-userinfo {
+    display: inline;
+    align-items: center;
+    text-align: center;
+  }
+  .profile-avatar {
+    margin-right: 0;
+  }
+} */
