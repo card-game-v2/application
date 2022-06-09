@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { createID } from '../../utils/function';
 import { getUserByUsername, postUser } from '../../utils/connection';
 
-const Create = ({ theme, setAuth, user, setUser }) => {
+const Create = ({ theme, setAuth, setUser }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -34,10 +34,19 @@ const Create = ({ theme, setAuth, user, setUser }) => {
     const { message } = await getUserByUsername(e.target[0].value);
     if (message === 'User not found') {
       const userid = await createID();
-      await postUser(userid, e.target[0].value, e.target[1].value);
+      await postUser(
+        userid,
+        e.target[0].value,
+        e.target[1].value,
+        'https://64.media.tumblr.com/24f93e6373bd3d6a27ec2e096658b865/tumblr_nwxt5iu24I1ujp48jo1_400.png'
+      );
       toast.success('Account created');
       setAuth(true);
-      setUser({ ...user, username: e.target[0].value, userid: userid });
+      setUser({
+        username: e.target[0].value,
+        userid: userid,
+        avatar: 'https://64.media.tumblr.com/24f93e6373bd3d6a27ec2e096658b865/tumblr_nwxt5iu24I1ujp48jo1_400.png',
+      });
       navigate('/profile');
     } else {
       toast.error('Username already exists');
