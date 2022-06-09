@@ -23,3 +23,19 @@ export const getUsercardsById = async (user_id) => {
   const { data } = await server.get(`/usercards/${user_id}`);
   return data;
 };
+
+export const postUsercards = async (user_id, card_id, usercards_issue, usercards_rank, usercards_xp) => {
+  const { data } = await server.post('/usercards', {
+    user_id,
+    card_id,
+    usercards_issue,
+    usercards_rank,
+    usercards_xp,
+  });
+  return data;
+};
+
+export const incrementCardIssue = async (card_id) => {
+  const { data } = await server.patch('/cards', { card_id });
+  return data;
+};
