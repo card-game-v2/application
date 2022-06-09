@@ -1,18 +1,28 @@
 import './Authentication.css';
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-const Login = ({ theme }) => {
+import { getUserByUsername } from '../../utils/connection';
+
+const Login = ({ theme, setAuth, setUser }) => {
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // get username from the form data
-    // get userdata from the server using the username
-    // if the form data username is not valid display error message
-    // if the form data username is valid, check if the passwords match
-    // if the passwords do not match display error message
-    // if the passwords match, redirect to the profile page
+    const data = await getUserByUsername(e.target[0].value);
+    if (data.message === 'User not found' || e.target[1].value !== data.data.user_password) {
+      toast.error('Invalid username or password');
+      return;
+    }
+    toast.success('Login successful');
+    setAuth(true);
+    console.log(data);
+    setUser({
+      username: data.data.user_name,
+      userid: data.data.user_id,
+      avatar: data.data.user_avatar_url,
+    });
     navigate('/profile');
   };
 
