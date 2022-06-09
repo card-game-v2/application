@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import Login from './components/authentication/Login';
 import Create from './components/authentication/Create';
 import Profile from './components/pages/Profile';
+import Collection from './components/pages/Collection';
 import Navigation from './components/navigation/Navigation';
 
 function App() {
@@ -23,6 +24,10 @@ function App() {
         <Route path="/login" element={<Login theme={theme} setAuth={setAuth} setUser={setUser} />} />
         <Route path="/create" element={<Create theme={theme} setAuth={setAuth} setUser={setUser} />} />
         <Route path="/profile" element={auth ? <Profile theme={theme} user={user} /> : <Navigate to="/login" />} />
+        <Route
+          path="/collection"
+          element={auth ? <Collection theme={theme} user={user} /> : <Navigate to="/login" />}
+        />
         <Route path="/*" element={<h1>ERROR</h1>} />
       </Routes>
     </div>
