@@ -14,6 +14,5 @@ export const createID = async () => {
 
 export const spawnRandomCard = async (user_id, card_id) => {
   const { data } = await incrementCardIssue(card_id);
-  console.log(data);
   await postUsercards(user_id, card_id, data.card_issue, 'H', 0);
 };
