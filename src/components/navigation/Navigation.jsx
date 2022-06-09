@@ -16,14 +16,14 @@ const Navbar = ({ theme, setTheme }) => {
       <Link to="/profile">
         <button className={`navigation-btn navigation-btn-${theme}`}>PROFILE</button>
       </Link>
+      <Link to="/collection">
+        <button className={`navigation-btn navigation-btn-${theme}`}>COLLECTION</button>
+      </Link>
       <button
         className={`navigation-btn navigation-btn-${theme}`}
         onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       >
         TESTING - THEME
-      </button>
-      <button className={`navigation-btn navigation-btn-${theme}`} onClick={() => {}}>
-        TESTING - SPAWN CARD
       </button>
     </nav>
   );
