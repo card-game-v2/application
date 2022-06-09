@@ -10,18 +10,14 @@ import Profile from './components/pages/Profile';
 import Navigation from './components/navigation/Navigation';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [auth, setAuth] = useState(false);
-  const [user, setUser] = useState({
-    username: '',
-    userid: '',
-    avatar: '',
-  });
+  const [user, setUser] = useState(undefined);
 
   return (
     <div className={`App app-${theme}`}>
       <ToastContainer />
-      <Navigation theme={theme} />
+      <Navigation theme={theme} setTheme={setTheme} />
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login theme={theme} setAuth={setAuth} setUser={setUser} />} />

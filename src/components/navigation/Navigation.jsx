@@ -2,7 +2,7 @@ import './Navigation.css';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = ({ theme }) => {
+const Navbar = ({ theme, setTheme }) => {
   const { pathname } = useLocation();
 
   const checkActive = () => {
@@ -16,6 +16,15 @@ const Navbar = ({ theme }) => {
       <Link to="/profile">
         <button className={`navigation-btn navigation-btn-${theme}`}>PROFILE</button>
       </Link>
+      <button
+        className={`navigation-btn navigation-btn-${theme}`}
+        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      >
+        TESTING - THEME
+      </button>
+      <button className={`navigation-btn navigation-btn-${theme}`} onClick={() => {}}>
+        TESTING - SPAWN CARD
+      </button>
     </nav>
   );
 };
