@@ -14,11 +14,12 @@ export const getUserById = async (userId) => {
   return data;
 };
 
-export const postUser = async (userID, userName, userPassword) => {
+export const postUser = async (userID, userName, userPassword, userAvatarURL) => {
   const { data } = await server.post('/user', {
     user_id: userID,
     user_name: userName,
     user_password: userPassword,
+    user_avatar_url: userAvatarURL,
   });
   return data;
 };
