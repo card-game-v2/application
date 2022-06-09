@@ -7,7 +7,7 @@ const Profile = ({ theme, user }) => {
       <div className={`profile-userinfo profile-userinfo-${theme}`}>
         <img className={`profile-avatar`} src={`${user.avatar}`} alt="Profile Icon" />
         <div>
-          <h1 className={`profile-name`}>{user.username}</h1>
+          <h1 className={`profile-name`}>{`${user.username[0].toUpperCase()}${user.username.slice(1)}`}</h1>
           <h4 className={`profile-id`}>{user.userid}</h4>
         </div>
       </div>
