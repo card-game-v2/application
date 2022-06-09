@@ -1,6 +1,8 @@
 import './styles/App.css';
+import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import Login from './components/authentication/Login';
 import Create from './components/authentication/Create';
@@ -12,6 +14,7 @@ function App() {
 
   return (
     <div className={`App app-${theme}`}>
+      <ToastContainer />
       <Navigation theme={theme} />
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
