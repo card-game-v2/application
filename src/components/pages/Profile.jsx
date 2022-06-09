@@ -1,18 +1,14 @@
 import './Profile.css';
 import React from 'react';
 
-const Profile = ({ theme }) => {
+const Profile = ({ theme, user }) => {
   return (
     <section className={`profile profile-${theme}`}>
       <div className={`profile-userinfo profile-userinfo-${theme}`}>
-        <img
-          className={`profile-avatar`}
-          src="https://64.media.tumblr.com/24f93e6373bd3d6a27ec2e096658b865/tumblr_nwxt5iu24I1ujp48jo1_400.png"
-          alt="Profile Icon"
-        />
+        <img className={`profile-avatar`} src={`${user.avatar}`} alt="Profile Icon" />
         <div>
-          <h1 className={`profile-name`}>Username</h1>
-          <h4 className={`profile-id`}>1938573925837508</h4>
+          <h1 className={`profile-name`}>{user.username}</h1>
+          <h4 className={`profile-id`}>{user.userid}</h4>
         </div>
       </div>
       <div className={`profile-statistics profile-statistics-${theme}`}>
