@@ -1,4 +1,4 @@
-import { getUserById } from './connection';
+import { getUserById, postUsercards, incrementCardIssue } from './connection';
 
 export const createID = async () => {
   const array = [];
@@ -10,4 +10,10 @@ export const createID = async () => {
   const { message } = await getUserById(id);
   if (message === 'User not found') return id;
   return createID();
+};
+
+export const spawnRandomCard = async (user_id, card_id) => {
+  const { data } = await incrementCardIssue(card_id);
+  console.log(data);
+  await postUsercards(user_id, card_id, data.card_issue, 'H', 0);
 };
