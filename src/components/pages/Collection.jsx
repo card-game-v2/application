@@ -1,21 +1,11 @@
 import './Collection.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Tilt from 'react-parallax-tilt';
 
-import { getUsercardsById } from '../../utils/connection';
+// import { getUsercardsById } from '../../utils/connection';
 
 const Profile = ({ theme, user, spawn }) => {
   const [usercards, setUsercards] = useState([]);
-
-  useEffect(() => {
-    const makeAsync = async () => {
-      const { data } = await getUsercardsById(user.userid);
-      setUsercards(data);
-    };
-    makeAsync();
-  }, [spawn]);
-
-  useEffect(() => {}, [usercards]);
 
   return (
     <section className={`collection collection-${theme}`}>
