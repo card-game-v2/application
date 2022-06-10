@@ -2,7 +2,7 @@ import './Navigation.css';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Navigation = ({ theme, setTheme }) => {
+const Navigation = ({ theme, setTheme, user }) => {
   const { pathname } = useLocation();
 
   const checkActive = () => {
@@ -25,6 +25,13 @@ const Navigation = ({ theme, setTheme }) => {
       >
         TESTING - THEME
       </button>
+      <div className={`settings settings-${theme}`}>
+        <img className={`settings-img`} src={user.avatar_url} alt="" />
+        <div className={`settings-info`}>
+          <div className={`settings-name`}>{`${user.username[0].toUpperCase()}${user.username.slice(1)}`}</div>
+          <div className={`settings-id`}>{user.user_id}</div>
+        </div>
+      </div>
     </nav>
   );
 };

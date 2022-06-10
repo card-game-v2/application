@@ -63,6 +63,39 @@
 .navigation-btn-dark:hover {
   background-color: #39393b;
 }
+.settings {
+  position: absolute;
+  display: flex;
+  padding: 10px 20px;
+  width: calc(100% - 40px);
+  height: 40px;
+  bottom: 0;
+  text-align: left;
+  cursor: pointer;
+}
+.settings-light {
+  border-top: 1px solid var(--light-tertiary);
+}
+.settings-dark {
+  border-top: 1px solid var(--dark-tertiary);
+}
+.settings-img {
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+.settings-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.settings-name {
+  font-weight: bold;
+}
+.settings-id {
+  font-size: 12px;
+}
 
 @media (max-width: 1025px) {
   .navigation {
@@ -87,6 +120,9 @@
     display: none;
   }
   .navigation-btn {
+    display: none;
+  }
+  .settings {
     display: none;
   }
 }
