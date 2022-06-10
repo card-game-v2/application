@@ -4,38 +4,14 @@ const server = axios.create({
   baseURL: 'http://192.168.0.10:9000',
 });
 
-export const getUserByUsername = async (user_name) => {
-  const { data } = await server.get(`/users/u/${user_name}`);
-  return data;
+export const getUserByUsername = async (username) => {
+  return await server.get(`/users/username/${username}`);
 };
 
 export const getUserById = async (user_id) => {
-  const { data } = await server.get(`/users/i/${user_id}`);
-  return data;
+  return await server.get(`/users/id/${user_id}`);
 };
 
-export const postUser = async (user_id, user_name, user_password, user_avatar_url) => {
-  const { data } = await server.post('/users', { user_id, user_name, user_password, user_avatar_url });
-  return data;
-};
-
-export const getUsercardsById = async (user_id) => {
-  const { data } = await server.get(`/usercards/${user_id}`);
-  return data;
-};
-
-export const postUsercards = async (user_id, card_id, usercards_issue, usercards_rank, usercards_xp) => {
-  const { data } = await server.post('/usercards', {
-    user_id,
-    card_id,
-    usercards_issue,
-    usercards_rank,
-    usercards_xp,
-  });
-  return data;
-};
-
-export const incrementCardIssue = async (card_id) => {
-  const { data } = await server.patch('/cards', { card_id });
-  return data;
+export const postUser = async (user_id, username, password, avatar_url, join_date, currency) => {
+  return await server.post('/users', { user_id, username, password, avatar_url, join_date, currency });
 };
