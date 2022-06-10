@@ -10,21 +10,22 @@ const Login = ({ theme, setAuth, setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (e.target[0].value.length < 1 || e.target[1].value.length < 1) {
-      toast.error('Invalid username or password');
-      return;
-    }
-    const data = await getUserByUsername(e.target[0].value);
-    if (data.message === 'User not found' || e.target[1].value !== data.data.user_password) {
-      toast.error('Invalid username or password');
-      return;
-    }
+    const username = e.target[0].value;
+    const password = e.target[1].value;
+    if (username.length < 1 || password.length < 1) return toast.error('Invalid username or password');
+    const { data } = await getUserByUsername(e.target[0].value);
+    if (data.data.message === 'error' || password !== data.data.password)
+      return toast.error('Invalid username or password');
+
     toast.success('Login successful');
     setAuth(true);
     setUser({
-      username: data.data.user_name,
-      userid: data.data.user_id,
-      avatar: data.data.user_avatar_url,
+      user_id: data.data.user_id,
+      username: data.data.username,
+      password: data.data.password,
+      avatar_url: data.data.avatar_url,
+      join_date: data.data.join_date,
+      currency: data.data.currency,
     });
     navigate('/profile');
   };
