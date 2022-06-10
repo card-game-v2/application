@@ -12,10 +12,11 @@ const Login = ({ theme, setAuth, setUser }) => {
     e.preventDefault();
     const username = e.target[0].value;
     const password = e.target[1].value;
+
     if (username.length < 1 || password.length < 1) return toast.error('Invalid username or password');
+
     const { data } = await getUserByUsername(e.target[0].value);
-    if (data.data.message === 'error' || password !== data.data.password)
-      return toast.error('Invalid username or password');
+    if (data.message === 'error' || password !== data.data.password) return toast.error('Invalid username or password');
 
     toast.success('Login successful');
     setAuth(true);
