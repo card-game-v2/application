@@ -1,7 +1,18 @@
 import './Profile.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Loading from '../loading/Loading';
 
 const Profile = ({ theme, user }) => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 600);
+  }, []);
+
+  if (loading) return <Loading theme={theme} />;
+
   return (
     <section className={`profile profile-${theme}`}>
       <div className={`profile-userinfo profile-userinfo-${theme}`}>
