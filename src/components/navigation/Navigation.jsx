@@ -31,6 +31,15 @@ const Navigation = ({ theme, setTheme, user }) => {
           COLLECTION
         </button>
       </Link>
+      <Link to="/store">
+        <button
+          className={`navigation-btn navigation-btn-${theme} ${
+            pathname === '/store' ? 'navigation-btn-selected-' + theme : null
+          }`}
+        >
+          STORE
+        </button>
+      </Link>
       <div onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className={`settings settings-${theme}`}>
         <img className={`settings-img`} src={user?.avatar_url} alt="" />
         <div className={`settings-info`}>
