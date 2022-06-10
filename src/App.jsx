@@ -11,7 +11,7 @@ import Collection from './components/pages/Collection';
 import Navigation from './components/navigation/Navigation';
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [auth, setAuth] = useState(false);
   const [user, setUser] = useState(undefined);
 
