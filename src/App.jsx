@@ -14,7 +14,6 @@ function App() {
   const [theme, setTheme] = useState('light');
   const [auth, setAuth] = useState(false);
   const [user, setUser] = useState(undefined);
-  const [spawn, setSpawn] = useState(true);
 
   return (
     <div className={`App app-${theme}`}>
