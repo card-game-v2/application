@@ -3,61 +3,43 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { createID } from '../../utils/function';
+import { createUniqueUserID } from '../../utils/function';
 import { getUserByUsername, postUser } from '../../utils/connection';
 
 const Create = ({ theme, setAuth, setUser }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (/^[0-9]$/.test(e.target[0].value[0])) {
-      toast.error('Username must start with a letter');
-      return;
-    }
-    if (e.target[0].value.length < 4) {
-      toast.error('Username must be at least 4 characters');
-      return;
-    }
-    if (e.target[0].value.length > 14) {
-      toast.error('Username must be less than 15 characters');
-      return;
-    }
-    if (!/^[a-z][a-z0-9]{3,}$/.test(e.target[0].value.toLowerCase())) {
-      toast.error('Username can not contain special characters');
-      return;
-    }
-    if (e.target[1].value.length < 6) {
-      toast.error('Password must be at least 6 characters');
-      return;
-    }
-    if (e.target[1].value.length > 64) {
-      toast.error('Password must be less than 65 characters');
-      return;
-    }
-    if (e.target[1].value !== e.target[2].value) {
-      toast.error('Passwords do not match');
-      return;
-    }
-    const { message } = await getUserByUsername(e.target[0].value);
-    if (message === 'User not found') {
-      const userid = await createID();
-      await postUser(
-        userid,
-        e.target[0].value,
-        e.target[1].value,
-        'https://64.media.tumblr.com/24f93e6373bd3d6a27ec2e096658b865/tumblr_nwxt5iu24I1ujp48jo1_400.png'
-      );
+    try {
+      e.preventDefault();
+      const username = e.target[0].value;
+      const password = e.target[1].value;
+      const password2 = e.target[2].value;
+
+      if (/^[0-9]$/.test(username[0])) return toast.error('Username must start with a letter');
+      if (username.length < 4) return toast.error('Username must be at least 4 characters');
+      if (username.length > 14) return toast.error('Username must be less than 15 characters');
+      if (!/^[a-z][a-z0-9]{3,}$/.test(username.toLowerCase()))
+        return toast.error('Username can not contain special characters');
+      if (password.length < 6) return toast.error('Password must be at least 6 characters');
+      if (password.length > 64) return toast.error('Password must be less than 65 characters');
+      if (password !== password2) return toast.error('Passwords do not match');
+
+      const { data } = await getUserByUsername(username);
+      if (data.message === 'success') return toast.error('Username already exists');
+
+      const user_id = await createUniqueUserID();
+      const avatar_url = 'https://i.pinimg.com/originals/ff/dd/c9/ffddc9365ea7fe9cf0bf5548249fc6e4.jpg';
+      const join_date = Date.now();
+      const currency = 1000;
+
+      await postUser(user_id, username, password, avatar_url, join_date, currency);
       toast.success('Account created');
       setAuth(true);
-      setUser({
-        username: e.target[0].value,
-        userid: userid,
-        avatar: 'https://64.media.tumblr.com/24f93e6373bd3d6a27ec2e096658b865/tumblr_nwxt5iu24I1ujp48jo1_400.png',
-      });
+      setUser({ user_id, username, password, avatar_url, join_date, currency });
       navigate('/profile');
-    } else {
-      toast.error('Username already exists');
+    } catch (e) {
+      toast.error('Internal server error');
     }
   };
 
