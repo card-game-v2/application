@@ -26,10 +26,10 @@ const Navigation = ({ theme, setTheme, user }) => {
         TESTING - THEME
       </button>
       <div className={`settings settings-${theme}`}>
-        <img className={`settings-img`} src={user.avatar_url} alt="" />
+        <img className={`settings-img`} src={user?.avatar_url} alt="" />
         <div className={`settings-info`}>
-          <div className={`settings-name`}>{`${user.username[0].toUpperCase()}${user.username.slice(1)}`}</div>
-          <div className={`settings-id`}>{user.user_id}</div>
+          <div className={`settings-name`}>{`${user?.username[0].toUpperCase()}${user?.username.slice(1)}`}</div>
+          <div className={`settings-id`}>{user?.user_id}</div>
         </div>
       </div>
     </nav>
