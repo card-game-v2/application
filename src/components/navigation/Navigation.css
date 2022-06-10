@@ -63,6 +63,12 @@
 .navigation-btn-dark:hover {
   background-color: #39393b;
 }
+.navigation-btn-selected-light {
+  background-color: #e6e6e7;
+}
+.navigation-btn-selected-dark {
+  background-color: #39393b;
+}
 .settings {
   position: absolute;
   display: flex;
@@ -91,10 +97,11 @@
   justify-content: center;
 }
 .settings-name {
+  font-size: 14px;
   font-weight: bold;
 }
 .settings-id {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 @media (max-width: 1025px) {

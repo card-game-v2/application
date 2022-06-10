@@ -14,18 +14,24 @@ const Navigation = ({ theme, setTheme, user }) => {
       <div className={`navigation-logo`}>Application Logo</div>
       <input className={`navigation-input input-${theme}`} placeholder="Search..." type="text" />
       <Link to="/profile">
-        <button className={`navigation-btn navigation-btn-${theme}`}>PROFILE</button>
+        <button
+          className={`navigation-btn navigation-btn-${theme} ${
+            pathname === '/profile' ? 'navigation-btn-selected-' + theme : null
+          }`}
+        >
+          PROFILE
+        </button>
       </Link>
       <Link to="/collection">
-        <button className={`navigation-btn navigation-btn-${theme}`}>COLLECTION</button>
+        <button
+          className={`navigation-btn navigation-btn-${theme} ${
+            pathname === '/collection' ? 'navigation-btn-selected-' + theme : null
+          }`}
+        >
+          COLLECTION
+        </button>
       </Link>
-      <button
-        className={`navigation-btn navigation-btn-${theme}`}
-        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      >
-        TESTING - THEME
-      </button>
-      <div className={`settings settings-${theme}`}>
+      <div onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} className={`settings settings-${theme}`}>
         <img className={`settings-img`} src={user?.avatar_url} alt="" />
         <div className={`settings-info`}>
           <div className={`settings-name`}>{`${user?.username[0].toUpperCase()}${user?.username.slice(1)}`}</div>
