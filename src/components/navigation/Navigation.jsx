@@ -1,10 +1,8 @@
 import './Navigation.css';
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { spawnRandomCard } from '../../utils/function';
-import { toast } from 'react-toastify';
 
-const Navbar = ({ theme, setTheme, user, spawn, setSpawn }) => {
+const Navigation = ({ theme, setTheme }) => {
   const { pathname } = useLocation();
 
   const checkActive = () => {
@@ -27,18 +25,8 @@ const Navbar = ({ theme, setTheme, user, spawn, setSpawn }) => {
       >
         TESTING - THEME
       </button>
-      <button
-        className={`navigation-btn navigation-btn-${theme}`}
-        onClick={async () => {
-          await spawnRandomCard(user.userid, 1);
-          setSpawn(!spawn);
-          toast('🦄 Chaeyoung has been summoned');
-        }}
-      >
-        TESTING - SPAWN CARD
-      </button>
     </nav>
   );
 };
 
-export default Navbar;
+export default Navigation;
