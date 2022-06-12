@@ -29,7 +29,7 @@ function App() {
           path="/collection"
           element={auth ? <Collection theme={theme} user={user} /> : <Navigate to="/login" />}
         />
-        <Route path="/store" element={auth ? <Store theme={theme} /> : <Navigate to="/login" />} />
+        <Route path="/store" element={auth ? <Store theme={theme} user={user} /> : <Navigate to="/login" />} />
         <Route path="/*" element={<h1>ERROR</h1>} />
       </Routes>
     </div>
