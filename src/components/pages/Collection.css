@@ -38,7 +38,7 @@
 }
 .collection-card {
   margin: 10px 15px;
-  height: 205px;
+  height: 200px;
   border-radius: 6px;
   background-color: black;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -52,7 +52,14 @@
   .collection-tilt {
     transform: none;
   }
+}
+@media (max-width: 768px) {
   .collection-card {
     height: 175px;
+  }
+}
+@media (max-width: 374px) {
+  .collection-card {
+    height: 138px;
   }
 }
