@@ -1,4 +1,5 @@
 import { getUserById } from './connection';
+import bcrypt from 'bcryptjs';
 
 export const createUniqueUserID = async () => {
   const array = [];
@@ -11,4 +12,8 @@ export const createUniqueUserID = async () => {
   const { data } = await getUserById(parseInt(array.join('')));
   if (data.message === 'error') return parseInt(array.join(''));
   return createUniqueUserID();
+};
+
+export const encryptPassword = async (password) => {
+  return await bcrypt.hash(password, 10);
 };
