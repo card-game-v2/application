@@ -8,7 +8,7 @@ const Profile = ({ theme, user }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 600);
+    }, 300);
   }, []);
 
   if (loading) return <Loading theme={theme} />;

@@ -15,7 +15,7 @@ const Profile = ({ theme, user }) => {
       setUsercards(data.data);
       setTimeout(() => {
         setLoading(false);
-      }, 1400);
+      }, 300);
     };
     makeAsync();
   }, [user.user_id]);
@@ -28,8 +28,9 @@ const Profile = ({ theme, user }) => {
         {usercards.length === 0 && <h1>YOUR COLLECTION IS EMPTY</h1>}
         {usercards.map((usercard) => {
           return (
-            <Tilt className={`collection-tilt`} key={`${usercard.card_id}${usercard.issue}`}>
+            <Tilt className={`collection-tilt`} key={Math.random()}>
               <img className={`collection-card`} src={usercard.image_url} alt="card" />
+              <p>#{usercard.issue}</p>
             </Tilt>
           );
         })}
@@ -39,3 +40,4 @@ const Profile = ({ theme, user }) => {
 };
 
 export default Profile;
+// `${usercard.card_id}${usercard.issue}`
