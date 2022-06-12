@@ -30,7 +30,6 @@ const Profile = ({ theme, user }) => {
           return (
             <Tilt className={`collection-tilt`} key={Math.random()}>
               <img className={`collection-card`} src={usercard.image_url} alt="card" />
-              <p>#{usercard.issue}</p>
             </Tilt>
           );
         })}
@@ -40,4 +39,3 @@ const Profile = ({ theme, user }) => {
 };
 
 export default Profile;
-// `${usercard.card_id}${usercard.issue}`
