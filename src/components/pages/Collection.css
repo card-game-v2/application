@@ -33,9 +33,12 @@
   background-color: var(--dark-secondary);
   border: 1px solid var(--dark-tertiary);
 }
+.collection-tilt {
+  display: inline-block;
+}
 .collection-card {
   margin: 10px 15px;
-  height: 250px;
+  height: 205px;
   border-radius: 6px;
   background-color: black;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -46,12 +49,10 @@
     margin-top: 60px;
     width: 100%;
   }
-}
-
-@media (max-width: 561px) {
-  .collection-cards {
-    display: inline;
-    align-items: center;
-    text-align: center;
+  .collection-tilt {
+    transform: none;
+  }
+  .collection-card {
+    height: 175px;
   }
 }

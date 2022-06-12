@@ -28,7 +28,7 @@ const Profile = ({ theme, user }) => {
         {usercards.length === 0 && <h1>YOUR COLLECTION IS EMPTY</h1>}
         {usercards.map((usercard) => {
           return (
-            <Tilt key={`${usercard.card_id}${usercard.issue}`}>
+            <Tilt className={`collection-tilt`} key={`${usercard.card_id}${usercard.issue}`}>
               <img className={`collection-card`} src={usercard.image_url} alt="card" />
             </Tilt>
           );
