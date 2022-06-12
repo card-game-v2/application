@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { createUniqueUserID } from '../../utils/function';
+import { createUniqueUserID, encryptPassword } from '../../utils/function';
 import { getUserByUsername, postUser } from '../../utils/connection';
 
 const Create = ({ theme, setAuth, setUser }) => {
@@ -25,6 +25,7 @@ const Create = ({ theme, setAuth, setUser }) => {
       if (password.length > 64) return toast.error('Password must be less than 65 characters');
       if (password !== password2) return toast.error('Passwords do not match');
 
+      const encryptedPassword = await encryptPassword(password);
       const { data } = await getUserByUsername(username);
       if (data.message === 'success') return toast.error('Username already exists');
 
@@ -33,10 +34,10 @@ const Create = ({ theme, setAuth, setUser }) => {
       const join_date = Date.now();
       const currency = 1000;
 
-      await postUser(user_id, username, password, avatar_url, join_date, currency);
+      await postUser(user_id, username, encryptedPassword, avatar_url, join_date, currency);
       toast.success('Account created');
       setAuth(true);
-      setUser({ user_id, username, password, avatar_url, join_date, currency });
+      setUser({ user_id, username, encryptedPassword, avatar_url, join_date, currency });
       navigate('/profile');
     } catch (e) {
       toast.error('Internal server error');
