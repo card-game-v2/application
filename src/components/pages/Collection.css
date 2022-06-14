@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 10px 15px;
+  padding: 15px 15px;
   width: calc(95% - 30px * 2);
   justify-content: center;
   border-radius: 12px 12px 12px 12px;
@@ -33,15 +33,28 @@
   background-color: var(--dark-secondary);
   border: 1px solid var(--dark-tertiary);
 }
-.collection-tilt {
-  display: inline-block;
+.react-card-flip {
+  margin: 10px 10px;
+}
+.collection-button {
+  border: none;
+  background-color: transparent;
 }
 .collection-card {
-  margin: 10px 15px;
+  width: 133px;
   height: 200px;
   border-radius: 6px;
-  background-color: black;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.collection-card-light {
+  color: var(--typography-light);
+  box-shadow: #e6e6e7 0px 2px 8px 0px;
+}
+.collection-card-dark {
+  color: var(--typography-dark);
+  box-shadow: #39393b 0px 2px 8px 0px;
+}
+.collection-card > p {
+  margin: 0;
 }
 
 @media (max-width: 1025px) {
@@ -49,17 +62,14 @@
     margin-top: 60px;
     width: 100%;
   }
-  .collection-tilt {
-    transform: none;
-  }
 }
 @media (max-width: 768px) {
   .collection-card {
-    height: 175px;
+    height: 174px;
   }
 }
 @media (max-width: 374px) {
   .collection-card {
-    height: 138px;
+    height: 135px;
   }
 }
