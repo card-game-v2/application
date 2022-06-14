@@ -6,6 +6,7 @@ const Profile = ({ theme, user }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log(user);
     setTimeout(() => {
       setLoading(false);
     }, 300);
@@ -24,7 +25,7 @@ const Profile = ({ theme, user }) => {
       </div>
       <div className={`profile-statistics profile-statistics-${theme}`}>
         <h4>${user.currency}</h4>
-        <h4>{new Date(user.join_date).toLocaleDateString()}</h4>
+        <h4>{new Date(parseInt(user.join_date)).toLocaleDateString()}</h4>
       </div>
     </section>
   );
