@@ -65,11 +65,13 @@
 }
 @media (max-width: 768px) {
   .collection-card {
+    width: 116px;
     height: 174px;
   }
 }
 @media (max-width: 374px) {
   .collection-card {
+    width: 90px;
     height: 135px;
   }
 }
