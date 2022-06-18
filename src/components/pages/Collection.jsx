@@ -5,7 +5,7 @@ import Loading from '../loading/Loading';
 
 import { getUsercardsById } from '../../utils/connection';
 
-const Profile = ({ theme, user }) => {
+const Collection = ({ theme, user }) => {
   const [loading, setLoading] = useState(true);
   const [usercards, setUsercards] = useState([]);
   const [isFlipped, setIsFlipped] = useState({});
@@ -58,4 +58,4 @@ const Profile = ({ theme, user }) => {
   );
 };
 
-export default Profile;
+export default Collection;
