@@ -29,7 +29,7 @@ const Collection = ({ theme, user }) => {
   return (
     <section className={`collection collection-${theme}`}>
       <h1 className={`collection-title`}>COLLECTION</h1>
-      <hr className={`hr hr-${theme}`} />
+      <hr className={`collection-hr collection-hr-${theme}`} />
       <div className={`collection-cards`}>
         {usercards.length === 0 && <h1>YOUR COLLECTION IS EMPTY</h1>}
         {usercards.map((usercard) => {

@@ -23,14 +23,14 @@
   margin-top: 15px;
   margin-bottom: 10px;
 }
-.hr {
+.collection-hr {
   width: 90%;
 }
-.hr-light {
+.collection-hr-light {
   border: none;
   border-bottom: 1.5px solid var(--light-tertiary);
 }
-.hr-dark {
+.collection-hr-dark {
   border: none;
   border-bottom: 1.5px solid var(--dark-tertiary);
 }
