@@ -6,10 +6,7 @@ const Profile = ({ theme, user }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log(user);
-    setTimeout(() => {
-      setLoading(false);
-    }, 300);
+    setLoading(false);
   }, []);
 
   if (loading) return <Loading theme={theme} />;
