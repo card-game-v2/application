@@ -7,6 +7,7 @@ import { getUsercardsById } from '../../utils/connection';
 
 const Collection = ({ theme, user }) => {
   const [loading, setLoading] = useState(true);
+  const [loadedImageCount, setLoadedImageCount] = useState(0);
   const [usercards, setUsercards] = useState([]);
   const [isFlipped, setIsFlipped] = useState({});
 
@@ -14,9 +15,7 @@ const Collection = ({ theme, user }) => {
     const makeAsync = async () => {
       const { data } = await getUsercardsById(user.user_id);
       setUsercards(data.data);
-      setTimeout(() => {
-        setLoading(false);
-      }, 300);
+      setLoading(false);
     };
     makeAsync();
   }, [user.user_id]);
@@ -29,7 +28,9 @@ const Collection = ({ theme, user }) => {
 
   return (
     <section className={`collection collection-${theme}`}>
-      <div className={`collection-cards collection-cards-${theme}`}>
+      <h1 className={`collection-title`}>COLLECTION</h1>
+      <hr className={`hr hr-${theme}`} />
+      <div className={`collection-cards`}>
         {usercards.length === 0 && <h1>YOUR COLLECTION IS EMPTY</h1>}
         {usercards.map((usercard) => {
           return (
@@ -39,7 +40,12 @@ const Collection = ({ theme, user }) => {
               key={`${usercard.usercard_id}+${usercard.issue}`}
             >
               <button className={`collection-button`} onClick={() => handleClick(usercard.usercard_id)}>
-                <img className={`collection-card collection-card-${theme}`} src={usercard.image_url} alt="card" />
+                <img
+                  className={`collection-card collection-card-${theme}`}
+                  src={usercard.image_url}
+                  alt="card"
+                  onLoad={() => setLoadedImageCount(loadedImageCount + 1)}
+                />
               </button>
               <button className={`collection-button`} onClick={() => handleClick(usercard.usercard_id)}>
                 <div className={`collection-card collection-card-${theme}`}>

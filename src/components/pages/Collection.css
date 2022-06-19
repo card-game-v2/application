@@ -16,22 +16,29 @@
   color: var(--typography-dark);
   background-color: var(--dark-primary);
 }
+.collection-title {
+  align-self: flex-start;
+  font-size: 2em;
+  margin-left: calc(5% + 5px);
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.hr {
+  width: 90%;
+}
+.hr-light {
+  border: none;
+  border-bottom: 1.5px solid var(--light-tertiary);
+}
+.hr-dark {
+  border: none;
+  border-bottom: 1.5px solid var(--dark-tertiary);
+}
 .collection-cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 15px 15px;
-  width: calc(95% - 30px * 2);
   justify-content: center;
-  border-radius: 12px 12px 12px 12px;
-}
-.collection-cards-light {
-  background-color: var(--light-secondary);
-  border: 1px solid var(--light-tertiary);
-}
-.collection-cards-dark {
-  background-color: var(--dark-secondary);
-  border: 1px solid var(--dark-tertiary);
 }
 .react-card-flip {
   margin: 10px 10px;
