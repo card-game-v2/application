@@ -8,9 +8,7 @@ const Store = ({ theme, user }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 300);
+    setLoading(false);
   }, []);
 
   const handlePackOpen = async () => {
