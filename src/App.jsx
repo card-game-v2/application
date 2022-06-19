@@ -12,7 +12,7 @@ import Store from './components/pages/Store';
 import Navigation from './components/navigation/Navigation';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [auth, setAuth] = useState(false);
   const [user, setUser] = useState(undefined);
 
