@@ -23,6 +23,8 @@ const Store = ({ theme, user }) => {
 
   return (
     <section className={`store store-${theme}`}>
+      <h1 className={`store-title`}>STORE</h1>
+      <hr className={`store-hr store-hr-${theme}`} />
       <button onClick={() => handlePackOpen()}>PACK 1</button>
     </section>
   );
