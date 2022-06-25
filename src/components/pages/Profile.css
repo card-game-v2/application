@@ -36,13 +36,28 @@
 }
 .profile-information {
   display: flex;
+  justify-content: space-between;
   margin: 10px 10px;
   width: 90%;
 }
-.profile-information > img {
+.profile-userinfo {
+  display: flex;
+}
+.profile-avatar {
   width: 180px;
   height: 180px;
   border-radius: 4px;
+}
+.profile-username {
+  margin: 10px 0px 10px 20px;
+}
+.profile-userid {
+  margin: 0px 0px 0px 20px;
+}
+.profile-statistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 1025px) {
